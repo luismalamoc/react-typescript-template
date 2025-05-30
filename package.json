@@ -1,6 +1,6 @@
 {
   "name": "react-typescript-template",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "React TypeScript Template with Radix UI for task management",
   "scripts": {
