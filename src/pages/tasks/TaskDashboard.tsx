@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { useTaskStore } from '@/store/taskStore';
-import { TaskForm } from '@/features/tasks/components/TaskForm';
-import { TaskCard } from '@/features/tasks/components/TaskCard';
-import { Task, TaskStatus } from '@/features/tasks/types';
+import { TaskForm } from '@/components/task/TaskForm';
+import { TaskCard } from '@/components/task/TaskCard';
+import { Task, TaskStatus } from '@/types/task';
 import { Button } from '@/components/ui/button';
 
 export const TaskDashboard: React.FC = () => {

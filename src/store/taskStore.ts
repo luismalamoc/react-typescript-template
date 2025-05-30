@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Task, TaskStatus, TaskPriority } from '@/features/tasks/types';
+import { Task, TaskStatus, TaskPriority } from '@/types/task';
 
 interface TaskState {
   tasks: Task[];

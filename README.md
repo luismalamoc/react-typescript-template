@@ -1,18 +1,22 @@
 # React TypeScript Template
 
-A modern React application template built with TypeScript, React, and shadcn/ui. This template provides a solid foundation for building web applications with a beautiful UI and well-organized code structure. It includes a task management feature as an example implementation.
+A modern React application template built with TypeScript, React, and Radix UI components. This template provides a solid foundation for building web applications with a beautiful UI and well-organized code structure. It includes a task management feature as an example implementation.
 
 ## Features
 
-- 🎨 Modern UI with shadcn/ui components
+- 🎨 Modern UI with Radix UI components
 - 🌙 Light and dark mode support
 - 📱 Responsive design for all device sizes
-- 🔒 Authentication flow (login, register, forgot password)
 - ✅ Task management (create, update, delete tasks)
 - 🏷️ Task filtering by status
 - 🔄 State management with Zustand
+- 📝 Form validation with Zod and React Hook Form
+- 🚀 Fast development with Vite
+- 🧩 TypeScript for type safety
 
 ## Project Structure
+
+This template follows a technical responsibility organization pattern, where code is organized by technical function rather than by domain:
 
 ```
 react-typescript-template/
@@ -21,33 +25,30 @@ react-typescript-template/
 │   ├── api/                 # API client and service definitions
 │   ├── assets/              # Images, fonts, and other assets
 │   ├── components/          # Reusable UI components
-│   │   └── ui/              # shadcn/ui components
-│   ├── config/              # Application configuration
-│   ├── context/             # React context providers
-│   ├── features/            # Feature-based modules
-│   │   ├── auth/            # Authentication feature
-│   │   │   ├── components/  # Auth-specific components
-│   │   │   └── pages/       # Auth pages (login, register, etc.)
-│   │   └── tasks/           # Tasks feature
-│   │       ├── components/  # Task-specific components
-│   │       └── pages/       # Task pages (dashboard, etc.)
+│   │   ├── task/            # Task-specific components
+│   │   └── ui/              # UI components (buttons, inputs, etc.)
+│   ├── config/              # Application configuration (Firebase, etc.)
 │   ├── hooks/               # Custom React hooks
 │   ├── layouts/             # Layout components
+│   ├── pages/               # Page components
+│   │   └── tasks/           # Task pages
 │   ├── routes/              # Routing configuration
-│   ├── schemas/             # Validation schemas
-│   ├── services/            # Service layer
-│   ├── store/               # State management
+│   ├── schemas/             # Zod validation schemas
+│   │   └── task/            # Task-related schemas
+│   ├── store/               # Zustand state management
 │   ├── styles/              # Global styles
+│   ├── types/               # TypeScript type definitions
+│   │   └── task/            # Task-related types
 │   ├── utils/               # Utility functions
 │   ├── App.tsx              # Main App component
 │   └── index.tsx            # Application entry point
-├── .env.example             # Example environment variables
 ├── index.html               # HTML entry point
 ├── package.json             # Dependencies and scripts
 ├── postcss.config.js        # PostCSS configuration
 ├── tailwind.config.js       # Tailwind CSS configuration
 ├── tsconfig.json            # TypeScript configuration
-└── vite.config.js           # Vite configuration
+├── vite.config.js           # Vite configuration
+└── LICENSE                  # MIT License file
 ```
 
 ## Getting Started
@@ -91,17 +92,19 @@ This template uses Tailwind CSS for styling. You can customize the theme in the 
 
 To add a new feature:
 
-1. Create a new directory in `src/features/` for your feature
+1. Create appropriate directories in the relevant technical areas (components, pages, types, schemas, etc.)
 2. Add components, pages, and other necessary files
 3. Update the routes in `src/routes/AppRoutes.tsx` to include your new feature
 
-### Authentication
+### Task Management
 
-This template includes a simple authentication system. In a real application, you would need to:
+This template includes a complete task management system with the following features:
 
-1. Connect to a real authentication API
-2. Implement proper token management
-3. Add additional security measures
+- Create, read, update, and delete tasks
+- Filter tasks by status
+- Set task priorities
+- Set due dates for tasks
+- Responsive UI for all device sizes
 
 ## Deployment
 
@@ -113,8 +116,24 @@ npm run build
 yarn build
 ```
 
-This will generate a `dist` directory with the production-ready files.
+This will generate a `dist` directory with the production-ready files. The application uses hash routing, making it compatible with static hosting services like GitHub Pages, Netlify, or Vercel.
 
 ## License
 
-MIT
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+```
+MIT License
+
+Copyright (c) 2025 Luis Alamo
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+```

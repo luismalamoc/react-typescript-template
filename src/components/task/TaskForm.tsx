@@ -1,21 +1,23 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { format } from 'date-fns';
 import { Button } from '@/components/ui/button';
 import { useTaskStore } from '@/store/taskStore';
-import { Task, TaskStatus, TaskPriority } from '@/features/tasks/types';
+import { 
+  Task, 
+  TaskStatus, 
+  TaskPriority
+} from '@/types/task';
+import { createTaskSchema, updateTaskSchema } from '@/schemas/task';
 
-const taskSchema = z.object({
-  title: z.string().min(3, 'Title must be at least 3 characters'),
-  description: z.string().min(5, 'Description must be at least 5 characters'),
-  status: z.nativeEnum(TaskStatus),
-  priority: z.nativeEnum(TaskPriority),
-  dueDate: z.string().optional(),
-});
-
-type TaskFormData = z.infer<typeof taskSchema>;
+type TaskFormData = {
+  title: string;
+  description: string;
+  status: TaskStatus;
+  priority: TaskPriority;
+  dueDate?: string;
+};
 
 interface TaskFormProps {
   task?: Task;
@@ -41,7 +43,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({
     handleSubmit, 
     formState: { errors, isSubmitting } 
   } = useForm<TaskFormData>({
-    resolver: zodResolver(taskSchema),
+    resolver: zodResolver(task ? updateTaskSchema : createTaskSchema),
     defaultValues,
   });
 

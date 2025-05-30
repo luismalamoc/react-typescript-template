@@ -1,6 +1,6 @@
 import React from 'react';
 import { format } from 'date-fns';
-import { Task, TaskStatus, TaskPriority } from '@/features/tasks/types';
+import { Task, TaskStatus, TaskPriority } from '@/types/task';
 import { useTaskStore } from '@/store/taskStore';
 import { Button } from '@/components/ui/button';
 

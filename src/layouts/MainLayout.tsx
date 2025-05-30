@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { Navbar } from '@/components/ui/navbar';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 
@@ -27,7 +27,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       
       <footer className="border-t py-4 text-center text-sm text-muted-foreground">
         <div className="container mx-auto">
-          <p>© {new Date().getFullYear()} Task Manager. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Luis Alamo. MIT License.</p>
         </div>
       </footer>
     </div>
